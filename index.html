@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Korean Character Animation - 멍멍 to 댕댕</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 40px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>멍멍 → 댕댕 Animation</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="500" height="300">
+      <style>
+        @keyframes lineMove {
+          0%, 40% { transform: translateX(0); }
+          60%, 100% { transform: translateX(18px); }
+        }
+        
+        @keyframes lineColor {
+          0%, 20% { stroke: #333; }
+          30%, 100% { stroke: #FF5722; }
+        }
+        
+        @keyframes boxLineDisappear {
+          0%, 40% { opacity: 1; }
+          60%, 100% { opacity: 0; }
+        }
+        
+        @keyframes lineAppear {
+          0%, 40% { opacity: 0; }
+          60%, 100% { opacity: 1; }
+        }
+        
+        .box-part {
+          fill: none;
+          stroke: #333;
+          stroke-width: 4;
+        }
+        
+        .moving-line {
+          stroke-width: 4;
+          stroke-linecap: round;
+          animation: lineMove 4s ease-in-out infinite, lineColor 4s ease-in-out infinite;
+        }
+        
+        .disappearing-line {
+          stroke: #333;
+          stroke-width: 4;
+          stroke-linecap: round;
+          animation: boxLineDisappear 4s ease-in-out infinite;
+        }
+        
+        .vertical-line {
+          stroke: #333;
+          stroke-width: 4;
+          stroke-linecap: round;
+        }
+        
+        .horizontal-line {
+          stroke: #333;
+          stroke-width: 4;
+          stroke-linecap: round;
+        }
+        
+        .circle {
+          fill: none;
+          stroke: #333;
+          stroke-width: 4;
+        }
+        
+        .bg-rect {
+          fill: white;
+        }
+        
+        .orange-vertical {
+          stroke: #FF5722;
+          stroke-width: 4;
+          stroke-linecap: round;
+          animation: lineAppear 4s ease-in-out infinite;
+        }
+      </style>
+      
+      <rect width="500" height="300" class="bg-rect" />
+      
+      <!-- First character group -->
+      <g transform="translate(150, 150)">
+        <!-- Square shape for ㅁ (mieum) -->
+        <line x1="-40" y1="-40" x2="40" y2="-40" class="box-part" />
+        <line x1="-40" y1="-40" x2="-40" y2="40" class="box-part" />
+        <line x1="-40" y1="40" x2="40" y2="40" class="box-part" />
+        
+        <!-- Right vertical line of the box that disappears -->
+        <line x1="40" y1="-40" x2="40" y2="40" class="disappearing-line" />
+        
+        <!-- Moving vertical line (changes from box right side to vowel component) -->
+        <line x1="40" y1="-40" x2="40" y2="40" class="moving-line" />
+        
+        <!-- ㅓ vowel -->
+        <line x1="80" y1="-40" x2="80" y2="40" class="vertical-line" />
+        <line x1="80" y1="0" x2="65" y2="0" class="horizontal-line" />
+        
+        <!-- Orange static line (appears after transition) -->
+        <line x1="58" y1="-40" x2="58" y2="40" class="orange-vertical" />
+        
+        <!-- ㅇ under character -->
+        <circle cx="0" cy="75" r="20" class="circle" />
+      </g>
+      
+      <!-- Second character group -->
+      <g transform="translate(350, 150)">
+        <!-- Square shape for ㅁ (mieum) -->
+        <line x1="-40" y1="-40" x2="40" y2="-40" class="box-part" />
+        <line x1="-40" y1="-40" x2="-40" y2="40" class="box-part" />
+        <line x1="-40" y1="40" x2="40" y2="40" class="box-part" />
+        
+        <!-- Right vertical line of the box that disappears -->
+        <line x1="40" y1="-40" x2="40" y2="40" class="disappearing-line" />
+        
+        <!-- Moving vertical line (changes from box right side to vowel component) -->
+        <line x1="40" y1="-40" x2="40" y2="40" class="moving-line" />
+        
+        <!-- ㅓ vowel -->
+        <line x1="80" y1="-40" x2="80" y2="40" class="vertical-line" />
+        <line x1="80" y1="0" x2="65" y2="0" class="horizontal-line" />
+        
+        <!-- Orange static line (appears after transition) -->
+        <line x1="58" y1="-40" x2="58" y2="40" class="orange-vertical" />
+        
+        <!-- ㅇ under character -->
+        <circle cx="0" cy="75" r="20" class="circle" />
+      </g>
+    </svg>
+  </div>
+</body>
+</html>
